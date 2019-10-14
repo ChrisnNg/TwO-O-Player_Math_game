@@ -1,10 +1,10 @@
 class Question 
 
-  def initialize(player, num1, num2)
+  def initialize(player)
   @player_id = player.id
   @player_lives = player.lives
-  @num_1 = num1
-  @num_2 = num2
+  @num_1 = rand(1...20)
+  @num_2 = rand(1...20)
   end
 
   def print_question
@@ -13,10 +13,10 @@ class Question
     answer = gets.chomp.to_i
     if answer == (@num_1 + @num_2)
       puts "Player #{@player_id}: YES! You are correct."
-      @player_lives
+      0
     else
       puts "Player #{@player_id}: Seriously? No!"
-      @player_lives -= 1
+      -1
     end
 
   end
